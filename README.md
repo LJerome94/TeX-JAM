@@ -23,3 +23,5 @@ Vous trouverez dans ce repertoire les fichier d'un exemple de ce que l'on peut a
 `Demo.pdf` - Un exemple compilé de `Demo.tex`.
 
 `Canevas.zip` Comme indiqué précedemment, les mêmes fichier que dans ce répertoire mais prêt à utiliser.
+
+Le fichier dans `Demo` sont spécifiques à la crétaion de `Demo.pdf`. Il ne sont pas nécessaires pour vos propres travaux.
