@@ -18,7 +18,7 @@ Vous trouverez dans ce repertoire les fichier d'un exemple de ce que l'on peut a
 
 **Important: ** Le contenu de ce fichier peut ralentir le temps de compilation d'un document, il est donc préférable de garder les section inutilisées en commentaires. C'est la cas dans `Canevas.zip`. Aussi, certains diagrammes requierts le compilateur *LuaLaTeX*, qui peut facilement être choisi dans *Overleaf*.
 
-`reference.sty` - Ce fichier contient des éléments spécifique à ma situation, donc des raccourcis pours les titres de cours, nom de professeurs et page titre.
+`references.sty` - Ce fichier contient des éléments spécifique à ma situation, donc des raccourcis pours les titres de cours, nom de professeurs et page titre.
 
 `Demo.pdf` - Un exemple compilé de `Demo.tex`.
 
