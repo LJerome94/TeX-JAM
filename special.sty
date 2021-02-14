@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code Python 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings} % Pour faire le formatege de code
+
+% couleur de Jupyter
+\definecolor{keywords}{rgb}{0,0.56,0}
+\definecolor{codegray}{rgb}{0.3,0.3,0.3}
+\definecolor{commentaire}{rgb}{0.13,0.57,0.47}
+\definecolor{backcolour}{rgb}{0.94,0.94,0.94}
+\definecolor{string}{rgb}{0.92,0.044,0}
+\definecolor{operators}{rgb}{0.82,0.18,0.89}
+\definecolor{functions}{rgb}{0.096, 0.032, 0.988}
+
+% Définir le style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{commentaire},
+    keywordstyle=\bfseries\color{keywords},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{string},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    otherkeywords = {as, None, True, False, Class},
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{
+        % Opérateurs
+        literate = 
+        {+}{{{\color{operators}\textbf{+}}}}{1} 
+        {-}{{{\color{operators}\textbf{-}}}}{1}
+        {=}{{{\color{operators}\textbf{=}}}}{1}
+        {*}{{{\color{operators}\textbf{*}}}}{1}
+        {/}{{{\color{operators}\textbf{/}}}}{1}
+        {<}{{{\color{operators}\textbf{<}}}}{1}
+        {>}{{{\color{operators}\textbf{>}}}}{1}
+        {!}{{{\color{operators}\textbf{!}}}}{1}
+        {\%}{{{\color{operators}\textbf{\%}}}}{1}
+        {^}{{{\color{operators}\textbf{^}}}}{1}
+        {AND}{{{\color{operators}\textbf{and}}}}{3}
+        {OR}{{{\color{operators}\textbf{or}}}}{3}
+        {NOT}{{{\color{operators}\textbf{not}}}}{3},
+        %%%%%%%%%%%%%
+        % Fonctions %
+        %%%%%%%%%%%%%
+        emph={
+            where,
+            concatenate,
+            copy,
+            zeroes,
+            func
+        },emphstyle=\color{functions}
+}
+
+% Assigner le style
+\lstset{style=mystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphiques
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\usepackage{pgfplots}
+	\usetikzlibrary{
+		calc,
+		patterns,
+		positioning
+	}
+	\pgfplotsset{
+		compat=1.16,
+		samples=200,
+		clip=false,
+		my axis style/.style={
+			axis x line=middle,
+			axis y line=middle,
+			legend pos=outer north east,
+			axis line style={
+				->,
+			},
+			legend style={
+				font=\footnotesize
+			},
+			label style={
+				font=\footnotesize
+			},
+			tick label style={
+				font=\footnotesize
+			},
+			xlabel style={
+				at={
+					(ticklabel* cs:1)
+				},
+				anchor=west,
+				font=\footnotesize,
+			},
+			ylabel style={
+				at={
+					(ticklabel* cs:1)
+				},
+				anchor=west,
+				font=\footnotesize,
+			},
+			xlabel=$x$,
+			ylabel=$y$
+		},
+	}
+	\tikzset{
+		>=stealth
+	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diagrammes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT: Certains diagrammes requiert le compilateur "LuaLaTeX"
+\usepackage{tikz}
+
+\usepackage[compat=1.1.0]{tikz-feynman} % Feynman
+\usepackage{circuitikz} % Électriques et logiques
+
+\usepackage{chemfig} % Molécules
+
+\usepackage{skak} % Échecs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Situationels 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{keystroke} % Touches de clavier
+\usepackage{fontawesome} % Symboles utiles
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Inutiles mais drôles %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{halloweenmath} % Halloween
+\usepackage{wasysym} % Symboles astrologiques3
+\usepackage{hieroglf} % Hiéroglyphe égyptiens
+\usepackage{epiolmec} % Hiéroglyphe amérique du sud
+

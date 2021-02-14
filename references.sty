@@ -1,0 +1,44 @@
+% Instituts
+\newcommand{\US}{Université de Sherbrooke}
+\newcommand{\DP}{Département de physique}
+
+% Étudiants
+\newcommand{\JL}{Jérôme Leblanc}
+\newcommand{\TD}{Théo Dionne}
+
+% Professeurs
+\newcommand{\JQ}{Jeffrey Quilliam}
+\newcommand{\YG}{Yves Grosdidier}
+\newcommand{\DM}{Denis Morris}
+\newcommand{\IG}{Ion Garate}
+
+% Cours
+\newcommand{\electromag}{Électricité et Magnétisme (PHQ224)}
+\newcommand{\ondes}{Phénomènes ondulatoires (PHQ210)}
+\newcommand{\physmath}{Physique mathématique (PHQ201)}
+\newcommand{\tpun}{Travaux Pratiques I (PHQ260)}
+
+
+% Page titre -----------------------------------------------------------------------------
+%\makeatletter
+\def\maketitlepage{
+	\begin{titlepage}
+	\begin{singlespace}
+	\begin{center}
+		\@author
+		\vfill
+		\textsc{\large \@title}
+		\vfill
+		Travail présenté à\\
+		\@teacher\\
+		pour le cours\\
+		\textit{\@class}
+		\vfill
+		\@date
+	\end{center}
+	\end{singlespace}
+	\end{titlepage}
+}
+\def\teacher#1{\def\@teacher{#1}}
+\def\class#1{\def\@class{#1}}
+%\makeatother

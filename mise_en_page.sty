@@ -1,0 +1,135 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{TP}[2011/05/10]
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[x11names,svgnames]{xcolor}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage{color, colortbl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[utf8x]{inputenc}
+\usepackage{layout}
+\usepackage{makeidx}
+
+
+% Listes -----------------------------------------------------------------------------
+\AtBeginDocument{\def\labelitemi{-}}
+
+% Hyperliens -----------------------------------------------------------------------------
+\usepackage{hyperref} 
+%\pdfcompresslevel=9 
+\hypersetup{ 
+     backref=true,
+     pagebackref=true,
+     hyperindex=true, 
+     colorlinks=true,
+     breaklinks=true,
+     urlcolor= blue,  
+     linkcolor= blue,
+     bookmarks=true,  
+     bookmarksopen=true,
+}
+% Mise en page générale -----------------------------------------------------------------------------
+\usepackage{caption}
+\usepackage{subcaption}
+
+\tolerance=500
+
+\renewcommand{\normalsize}{\fontsize{10pt}{11pt}\selectfont} 
+\setlength{\textwidth}{6.5in} 
+\setlength{\textheight}{9in}
+\setlength{\paperwidth}{8.5in} 
+\setlength{\paperheight}{11in}
+\setlength{\itemindent}{1cm}
+
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.1in
+\parindent = 0cm
+
+\numberwithin{equation}{section}
+\captionsetup{justification=centering}
+
+\newcommand{\blankpage}{\newpage\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}}
+
+
+% Titres personalisés -----------------------------------------------------------------------------
+\definecolor{partcolor}{rgb}{0.81, 0.81, 0.81}
+\newcounter{partie}
+\newcommand\partie[1]{
+\goodbreak
+\stepcounter{partie}
+\setlength{\fboxsep}{3pt}
+\fcolorbox{white}{partcolor}{\vbox{\rmfamily\bfseries \thepartie.~ #1}}
+\medskip
+}
+
+
+% Tableaux-----------------------------------------------------------------------------
+\usepackage{array}
+
+% Colonnes en mode math
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcolumntype{L}{>{$\displaystyle}l<{$}}
+\newcolumntype{R}{>{$\displaystyle}r<{$}}
+\renewcommand{\arraystretch}{1.5}
+\usepackage{dcolumn} % Alignement sur le point décimal
+
+
+% Format de titres-----------------------------------------------------------------------------
+\usepackage{titlesec}
+
+\titleformat{\section}{\penalty-2000\vspace{0pt plus 5pt}{\color{white}\titlerule[1pt]}\LARGE\bfseries\rmfamily}{\thesection}{1em}{}[\vspace{2pt plus 2pt}{\color{Black}\titlerule[1pt]}] 
+
+\titleformat{\subsection}[hang]{\penalty-1000\vspace{0pt plus 10pt}{}\large\bfseries\rmfamily}{\thesubsection}{1em}{} 
+
+\titleformat{\subsubsection}[hang]{\penalty-1000\vspace{0pt plus 10pt}{}\normalsize\bfseries\rmfamily}{\thesubsubsection}{1em}{} 
+
+\titlespacing*{\section}{0pt}{1\baselineskip}{0.5\baselineskip}
+
+\titlespacing*{\subsection}{0pt}{1\baselineskip}{0.01\baselineskip}
+
+\titlespacing*{\subsubsection}{0pt}{1\baselineskip}{0.01\baselineskip}
+
+% Figures -----------------------------------------------------------------------------
+\newcommand{\Figure}[4]{%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=#2\linewidth]{#1}
+    \caption{#3}
+    \label{#4}
+\end{figure}
+}
+
+
+% Accents en emphases-----------------------------------------------------------------------------
+
+% Paragraphe dans une boîte
+\newcommand{\bigbox}[1]{
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    #1
+    }
+    }
+}
+
+% Mettre des éléments en couleurs
+\newcommand{\red}[1]{\color{red} #1 \color{black}}
+\newcommand{\purple}[1]{\color{purple} #1 \color{black}}
+\newcommand{\blue}[1]{\color{blue} #1 \color{black}}
+\newcommand{\orange}[1]{\color{orange} #1 \color{black}}
+\newcommand{\green}[1]{\color{green} #1 \color{black}}
+\newcommand{\yellow}[1]{\color{yellow} #1 \color{black}}
+
