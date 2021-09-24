@@ -1,0 +1,454 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+%\ProvidesPackage{TP}[2011/05/10]
+
+%
+\usepackage{amsmath} % Facilite l'affichage mathématique.
+\usepackage{amsthm} % Permet de gérer des théorèmes et des preuves.
+\usepackage{bm} % Permet de mettre n'importe quel caractère en gras.
+\usepackage[french]{babel} % Formatage en français
+\usepackage{graphicx} % Plus d'option pour les images.
+\usepackage{float} % Améliore l'affichage de figures et tableaux.
+\usepackage[x11names,svgnames]{xcolor} % Ajoute des couleurs et options de couleurs.
+\usepackage{url} % Formatage des liens externes.
+\usepackage{enumerate} % Plus d'options de listes.
+\usepackage{setspace} % Déterminer les espaces entre les lignes.
+\usepackage{geometry} % Gestion d'affichage plus flexible.
+\usepackage{wrapfig} % Formatage de figures.
+\usepackage{colortbl} % Permet la couleur dans la structure de tableaux.
+\usepackage[T1]{fontenc} % Choisir l'encodage de polices.
+\usepackage[utf8]{inputenc} % Permet d'utiliser des caractère directement dans LaTeX.
+%\usepackage[utf8x]{inputenc} % Peut avoir des conflits avec d'autres.
+\usepackage{layout} % ????????????????????????????????
+\usepackage{makeidx} % Permet de créer des indexes.
+\usepackage{subfiles} % Permet d'importer d'autre fichier .tex dans le principal.
+%
+\usepackage{amssymb} % Plus de symboles mathématiques.
+\usepackage{amsfonts} % Plus de polices mathématiques.
+\usepackage[nice]{nicefrac} % Plus belles fractions.
+\usepackage{braket} % Notation de Dirac.
+\usepackage{mathrsfs} % Police mathématique cursive.
+\usepackage{lmodern} % Polices d'écritures.
+\usepackage{esint} % Plus d'intégrales
+\usepackage{cancel} % Permet de barrer des termes.
+\usepackage{bbm} % Police mathématique en gras.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathématiques et physique
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Unitées internationales -----------------------
+\newcommand{\ampere}{\text{A}}
+\newcommand{\bell}{\text{B}}
+\newcommand{\celsius}{\degree\text{C}}
+\newcommand{\coulomb}{\text{C}}
+\newcommand{\degree}{\,^{\circ}}
+\newcommand{\farad}{\text{F}}
+\newcommand{\electro}{\text{e}}
+\newcommand{\gram}{\text{g}}
+\newcommand{\henry}{\text{H}}
+\newcommand{\hertz}{\text{Hz}}
+\newcommand{\hour}{\text{h}}
+\newcommand{\joule}{\text{J}}
+\newcommand{\kelvin}{\text{K}}
+\newcommand{\m}{\text{m}}
+\newcommand{\minute}{\text{m}}
+\newcommand{\mole}{\text{mol}}
+\newcommand{\newton}{\text{N}}
+\newcommand{\ohm}{\Omega}
+\newcommand{\pascal}{\text{Pa}}
+\newcommand{\rad}{\text{rad}}
+\newcommand{\second}{\text{s}}
+\newcommand{\tesla}{\text{T}}
+\newcommand{\torr}{\text{Torr}}
+\newcommand{\volt}{\text{V}}
+\newcommand{\watt}{\text{W}}
+%
+\newcommand{\tera}{\text{T}}
+\newcommand{\giga}{\text{G}}
+\newcommand{\mega}{~\text{M}}
+\newcommand{\kilo}{~\text{k}}
+\newcommand{\deci}{\text{d}}
+\newcommand{\centi}{\text{c}}
+\newcommand{\milli}{\text{m}}
+\newcommand{\micro}{\mu}
+\newcommand{\nano}{\text{n}}
+\newcommand{\pico}{\text{p}}
+\newcommand{\femto}{\text{f}}
+%
+\newcommand{\per}{\text{/}}
+%
+\newcommand{\Time}[3]{#1\hour~#2\minute~#3\second}
+%\newcommand{\Angle}[3]{#1^{\circ}~#2'~#3''}
+
+
+% Plus bel epsilon -----------------------
+\let\oldepsilon\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\oldepsilon
+
+
+% Plus belle \bar -----------------------
+\renewcommand{\bar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+% Équations -----------------------
+\newcommand{\al}[1]{\begin{align} #1 \end{align}} % Équation(s) numérotée(s)
+\newcommand{\eq}[1]{\begin{equation} \begin{aligned} #1 \end{aligned} \end{equation}} % Équation numérotée, si plusieurs, traitées comme une seule.
+\newcommand{\eqn}[1]{\al{ #1 \notag }} % Équation non numérotée, si plusieurs, traitées comme une seule.
+\newcommand{\sys}[1]{\begin{cases} #1 \end{cases}} % Système d'équation avec un crochet à gauche
+
+
+% Exposants -----------------------
+\newcommand{\Exp}[1]{\text{e}^{#1}}		% e^#
+\newcommand{\E}[1]{\times 10^{#1}}		% X 10^#
+\newcommand{\Expi}[1]{\Exp{i\p{#1}}}	% e^i(#)
+\newcommand{\Expmi}[1]{\Exp{-i\p{#1}}}	% e^-i(#)
+
+
+% Délimitations -----------------------
+\newcommand{\p}[1]{\left( #1 \right)}	% (#)
+\newcommand{\cro}[1]{\left[ #1 \right]}	% [#]
+\newcommand{\abs}[1]{\left| #1\right|}	% |#|
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle} % <#>
+\newcommand{\acc}[1]{\left\lbrace #1 \right\rbrace} % {#}
+\newcommand{\commu}[2]{\left[#1,#2\right]} % Commutateur
+\newcommand{\poisson}[2]{\left\{#1,#2\right\}} % Crochets de poisson
+
+
+% Vecteurs -----------------------
+\newcommand{\ve}[1]{\mathbf{#1}} % Vecteurs en gras
+\newcommand{\vu}[1]{\hat{\ve{#1}}} % Vecteurs unitaire en gras
+\newcommand{\tens}{\otimes} % Produit tensoriel/de Kronecker
+\newcommand{\sumdir}{\oplus} % Somme directe
+\newcommand{\nablav}{\bm{\nabla}} % Gradient vectoriel
+
+
+% Rapport trigonométriques avec formatage automatique  -----------------------
+\renewcommand{\sin}[1]{\text{sin}\!\p{#1}}
+\renewcommand{\cos}[1]{\text{cos}\!\p{#1}}
+\renewcommand{\tan}[1]{\text{tan}\!\p{#1}}
+\renewcommand{\csc}[1]{\text{csc}\!\p{#1}}
+\renewcommand{\sec}[1]{\text{sec}\!\p{#1}}
+\renewcommand{\cot}[1]{\text{cot}\!\p{#1}}
+\renewcommand{\arcsin}[1]{\text{arcsin}\!\p{#1}}
+\renewcommand{\arccos}[1]{\text{arccos}\!\p{#1}}
+\renewcommand{\arctan}[1]{\text{arctan}\!\p{#1}}
+\renewcommand{\sinh}[1]{\text{sinh}\!\p{#1}}
+\renewcommand{\cosh}[1]{\text{cosh}\!\p{#1}}
+\renewcommand{\tanh}[1]{\text{tanh}\!\p{#1}}
+
+
+% Matrices -----------------------
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}} % Matrice avec crochets
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}} % Matrice avec parenthèses
+\newcommand{\deter}[1]{\norm{\begin{matrix} #1 \end{matrix}}} % Déterminant sous forme matriciel
+\newcommand{\matnull}{\mathbb{O}} % Matrice Nulle
+\newcommand{\Det}[1]{\text{det}\p{#1}} % det(#)
+\newcommand{\Tr}[1]{\text{Tr}\p{#1}} % Tr(#)
+
+
+% Dérivées -----------------------
+\newcommand{\D}{\text{d}} % "d" d'une différentielle
+\newcommand{\dd}[2]{\frac{\D#1}{\D#2}} % dérivée totale #1/#2
+\newcommand{\ddn}[3]{\frac{\D^{#3}#1}{\D #2^{#3}}} % dérivée totale #1/#2 d'ordre #3
+\newcommand{\dx}[1]{\dd{#1}{x}} % Dérivée selon x
+\newcommand{\dy}[1]{\dd{#1}{y}} % Dérivée selon y
+\newcommand{\dt}[1]{\dd{#1}{t}} % Dérivée selon t
+\newcommand{\dphi}[1]{\dd{#1}{\phi}} % Dérivée selon phi
+\newcommand{\dtheta}[1]{\dd{#1}{\theta}} % Dérivée selon theta
+\newcommand{\del}{\partial} % Del de dérivée partielle
+\newcommand{\ddp}[2]{\frac{\del#1}{\del#2}} % dérivée partielle #1/#2 
+\newcommand{\ddpn}[3]{\frac{\del^{#3}#1}{\del #2^{#3}}} %dérivée partielle #1/#2 d'ordre #3
+
+\newcommand{\eval}[1]{\left. {#1} \right|} % Barre à la droite d'une expression pour évaluation
+
+
+% Opérations -----------------------
+\newcommand{\fourier}[1]{\mathcal{F}\acc{#1}} % Transformée de Fourier F{#}
+\newcommand{\fourieri}[1]{\mathcal{F}^{-1}\acc{#1}} % Transformée de Fourier inverse F^-1{#}
+\renewcommand{\Re}[1]{\text{Re}\acc{#1}} % Re{#}
+\renewcommand{\Im}[1]{\text{Im}\acc{#1}} % Im{#}
+
+
+% Ensembles -----------------------
+\newcommand{\N}{\mathbbm{N}} % Naturels
+\newcommand{\Z}{\mathbbm{Z}} % Entiers
+\newcommand{\Q}{\mathbbm{Q}} % Rationels
+\newcommand{\R}{\mathbbm{R}} % Réels
+\newcommand{\Comp}{\mathbbm{C}} % Complexes
+\newcommand{\F}{\mathbbm{F}} % Champ quelconque
+\newcommand{\M}[3]{\mathbb{M}_{#1\times#2(#3)}}	% Matrices
+\newcommand{\Po}[2]{\mathbb{P}_{#1}(#2)} % Polynômes
+\newcommand{\Lin}[2]{\mathbb{L}(#1,#2)} % Transformations linéaires
+
+
+% Constantes et autres symboles physiques -----------------------
+\newcommand{\eo}{\epsilon_0} % epsilon 0
+\newcommand{\K}{\frac{1}{4\pi\eo}} % constate physique k=1/4.pi.e0
+\newcommand{\lagrange}{\mathcal{L}} % Lagrangien
+\newcommand{\hamilton}{\mathcal{H}} % Hamiltonien
+
+
+% Analyse -----------------------
+\newcommand{\Res}[2]{\text{Res}\! \acc{#1 , #2}} % Résidu de #1 en #2 R{#1,#2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mise en page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Listes -----------------------
+\AtBeginDocument{\def\labelitemi{-}}
+
+
+% Liens externes -----------------------
+\usepackage{hyperref} 
+\hypersetup{ 
+     %backref=true,
+     %pagebackref=true,
+     %hyperindex=true,
+     %bookmarks=true,
+     colorlinks=true,
+     breaklinks=true,
+     urlcolor= blue,  
+     linkcolor= blue,
+     bookmarksopen=true,
+}
+
+
+% Mise en page générale -----------------------
+\usepackage{caption}
+\usepackage{subcaption}
+
+\tolerance=500
+
+\renewcommand{\normalsize}{\fontsize{10pt}{11pt}\selectfont} 
+\setlength{\textwidth}{6.5in} 
+\setlength{\textheight}{9in}
+\setlength{\paperwidth}{8.5in} 
+\setlength{\paperheight}{11in}
+\setlength{\itemindent}{1cm}
+
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+%\parskip = 0.1in
+\parskip=1em
+\parindent = 0cm
+
+\numberwithin{equation}{section} % Comment nuéroter les équations (selon les sections)
+
+\captionsetup{justification=centering}
+
+\newcommand{\blankpage}{\newpage\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}} % Ajoute une page complètement blanche.
+
+
+% Tableaux -----------------------
+\usepackage{array} % Manipulations de tableaux.
+\usepackage{multirow} % Fusionner les cellules d'une même colonne.
+\usepackage{multicol} % Fusionner les cellules d'une même rangée.
+
+\def\frenchtablename{Tableau} %Pour avoir tableau au lieux de "table" dans l'identification de ceux-ci
+
+\newcolumntype{C}{>{$\displaystyle}c<{$}} % Colonnes en mode mathématiques
+\newcolumntype{L}{>{$\displaystyle}l<{$}} %
+\newcolumntype{R}{>{$\displaystyle}r<{$}} %
+\renewcommand{\arraystretch}{1.5}
+\usepackage{dcolumn} % Alignement sur le point décimal
+
+
+% Format de titres -----------------------
+\usepackage{titlesec} % Modifier les titres
+
+\titleformat{\section}{\penalty-2000\vspace{0pt plus 5pt}{\color{white}\titlerule[1pt]}\LARGE\bfseries\rmfamily}{\thesection}{1em}{}[\vspace{2pt plus 2pt}{\color{Black}\titlerule[1pt]}] % Sections.
+\titlespacing*{\section}{0pt}{1\baselineskip}{0.5\baselineskip} % 
+
+\titleformat{\subsection}[hang]{\penalty-1000\vspace{0pt plus 10pt}{}\large\bfseries\rmfamily}{\thesubsection}{1em}{} % Sous-sections.
+\titlespacing*{\subsection}{0pt}{1\baselineskip}{0.01\baselineskip} %
+
+\titleformat{\subsubsection}[hang]{\penalty-1000\vspace{0pt plus 10pt}{}\normalsize\bfseries\rmfamily}{\thesubsubsection}{1em}{} % Sous-sous-sections.
+\titlespacing*{\subsubsection}{0pt}{1\baselineskip}{0.01\baselineskip} %
+
+
+% Figures -----------------------
+\newcommand{\Figure}[4]{ % Permet d'ajouter une figure en une seule fonction à 4 arguments
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=#2\linewidth]{#1}
+    \caption{#3}
+    \label{#4}
+\end{figure}
+} % #1 Nom du fichier d'image, #2 Taille, #3 Légende, #4 Étiquette
+
+
+% Accents en emphases -----------------------
+\newcommand{\bigbox}[1]{ % Paragraphe dans une boîte (bords noirs)
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    #1
+    }
+    }
+}
+
+
+% Mettre des éléments en couleurs -----------------------
+\newcommand{\red}[1]{\color{red} #1 \color{black}}
+\newcommand{\purple}[1]{\color{purple} #1 \color{black}}
+\newcommand{\blue}[1]{\color{blue} #1 \color{black}}
+\newcommand{\orange}[1]{\color{orange} #1 \color{black}}
+\newcommand{\green}[1]{\color{green} #1 \color{black}}
+\newcommand{\yellow}[1]{\color{yellow} #1 \color{black}}
+\newcommand{\teal}[1]{\color{teal} #1 \color{black}}
+\newcommand{\cyan}[1]{\color{cyan} #1 \color{black}}
+\newcommand{\lime}[1]{\color{lime} #1 \color{black}}
+\newcommand{\pink}[1]{\color{pink} #1 \color{black}}
+\newcommand{\lightgray}[1]{\color{lightgray} #1 \color{black}}
+\newcommand{\gray}[1]{\color{gray} #1 \color{black}}
+\newcommand{\darkgray}[1]{\color{darkgray} #1 \color{black}}
+\newcommand{\olive}[1]{\color{olive} #1 \color{black}}
+\newcommand{\brown}[1]{\color{brown} #1 \color{black}}
+\newcommand{\magenta}[1]{\color{magenta} #1 \color{black}}
+\newcommand{\violet}[1]{\color{violet} #1 \color{black}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Propre à l'Université de Sherbrooke (2021)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instituts -----------------------
+\newcommand{\US}{Université de Sherbrooke}
+\newcommand{\DP}{Département de physique}
+
+
+% Étudiants -----------------------
+\newcommand{\JL}{Jérôme Leblanc}
+\newcommand{\TD}{Théo Dionne}
+
+
+% Professeurs -----------------------
+\newcommand{\JQ}{Jeffrey Quilliam}
+\newcommand{\YG}{Yves Grosdidier}
+\newcommand{\DM}{Denis Morris}
+\newcommand{\IG}{Ion Garate}
+\newcommand{\RC}{René Côté}
+\newcommand{\MP}{Michel Piorio-Ladrière}
+\newcommand{\CB}{Claude Bourbonnais}
+\newcommand{\AT}{André-Marie Tremblay}
+
+
+% Cours -----------------------
+\newcommand{\electromag}{Électricité et Magnétisme (PHQ224)}
+\newcommand{\ondes}{Phénomènes ondulatoires (PHQ210)}
+\newcommand{\physmath}{Physique mathématique (PHQ201)}
+\newcommand{\tpun}{Travaux Pratiques I (PHQ260)}
+
+\newcommand{\MQI}{Mécanique Quantique I (PHQ334)}
+\newcommand{\physstat}{Physique Statistique I (PHQ344)}
+\newcommand{\tpdeux}{Travaux pratique II (PHQ360)}
+\newcommand{\optique}{Optique (PHQ324)}
+\newcommand{\metho}{Méthodes de physique théorique ()}
+
+
+% Page titre -----------------------
+%\makeatletter
+\def\maketitlepage{
+	\begin{titlepage}
+	\begin{singlespace}
+	\begin{center}
+		\@author
+		\vfill
+		\textsc{\large \@title}
+		\vfill
+		Travail présenté à\\
+		\@teacher\\
+		pour le cours\\
+		\textit{\@class}
+		\vfill
+		\@date
+	\end{center}
+	\end{singlespace}
+	\end{titlepage}
+}
+\def\teacher#1{\def\@teacher{#1}}
+\def\class#1{\def\@class{#1}}
+%\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatages spécifiques
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Je recommande de dégriser les sections au besoins.
+
+% Code -----------------------
+%\usepackage{minted} % Environnement pour du code.
+%\usemintedstyle{tango} % Pour choisir le thème du code.
+
+% Graphiques -----------------------
+% \usepackage{pgfplots} % Faire des graphiques.
+
+% 	\usetikzlibrary{
+% 		calc,
+% 		patterns,
+% 		positioning
+% 	}
+% 	\pgfplotsset{
+% 		compat=1.16,
+% 		samples=200,
+% 		clip=false,
+% 		my axis style/.style={
+% 			axis x line=middle,
+% 			axis y line=middle,
+% 			legend pos=outer north east,
+% 			axis line style={
+% 				->,
+% 			},
+% 			legend style={
+% 				font=\footnotesize
+% 			},
+% 			label style={
+% 				font=\footnotesize
+% 			},
+% 			tick label style={
+% 				font=\footnotesize
+% 			},
+% 			xlabel style={
+% 				at={
+% 					(ticklabel* cs:1)
+% 				},
+% 				anchor=west,
+% 				font=\footnotesize,
+% 			},
+% 			ylabel style={
+% 				at={
+% 					(ticklabel* cs:1)
+% 				},
+% 				anchor=west,
+% 				font=\footnotesize,
+% 			},
+% 			xlabel=$x$,
+% 			ylabel=$y$
+% 		},
+% 	}
+% 	\tikzset{
+% 		>=stealth
+% 	}
+
+
+% Diagrammes -----------------------
+% !!! IMPORTANT: Certains diagrammes requiert le compilateur "LuaLaTeX" (comme les diagrames de Feynman) !!!
+%\usepackage{tikz} % Faire des diagrammes.
+
+% \usepackage[compat=1.1.0]{tikz-feynman} % Feynman
+% \usepackage{circuitikz} % Électriques et logiques
+
+
+% Situationels ----------------------- 
+% \usepackage{keystroke} % Touches de clavier
+% \usepackage{fontawesome} % Symboles utiles
+
+
+% Inutiles mais drôles -----------------------
+% \usepackage{halloweenmath} % Halloween
+% \usepackage{wasysym} % Symboles astrologiques3
+% \usepackage{hieroglf} % Hiéroglyphe égyptiens
