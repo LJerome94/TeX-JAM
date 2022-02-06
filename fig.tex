@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is an exemple figure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[tikz,margin=1mm]{standalone}
+
+\usepackage{page_format}
+\usepackage{special}
+\input{math_func}
+\usepackage{dsfont}
+\usepackage{pgfplots}
+
+
+\begin{document}
+%
+\begin{tikzpicture}
+  \begin{axis}[
+		regular_graph,
+		width=0.7\textwidth,
+		height=.7\textwidth,
+		samples = 500,
+		ticks=none,
+		xmin=0
+	]
+	
+	\addplot[
+		domain=0.175:3,
+		thick,
+		blue!70!black,
+		-
+	]
+	{(x-1.5)^3-x+2.5};
+	
+	\addplot[
+		domain=0.42:1.42,
+		thick,
+		white!40!black,
+		dashed,
+		-
+	]
+	{1.385};
+	
+	\addplot[
+		domain=1.577:2.577,
+		thick,
+		white!40!black,
+		dashed,
+		-
+	]
+	{0.615};
+	
+	\node[circle,fill=blue!70!black,inner sep=1.7pt] at (axis cs:0.92,1.385) {};
+	
+	\node[circle,fill=blue!70!black,inner sep=1.7pt] at (axis cs:2.077,0.615) {};
+
+	
+	\end{axis}
+\end{tikzpicture}
+%
+\end{document}
