@@ -2,7 +2,7 @@
 <img src="./logo.png" width=50% height=50% />
 </p>
 <p align="center">
-A sweet LaTeX template for yout homeworks and other academic assignements!
+A sweet LaTeX template for your homeworks and other academic assignements!
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white" />
