@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is an example figure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[tikz,margin=1mm]{standalone}
+
+\usepackage{page_format}
+\usepackage{special}
+\input{math_func}
+\usepackage{dsfont}
+\usepackage{pgfplots}
+
+
+\begin{document}
+%
+\begin{tikzpicture}
+    %
+    \begin{axis}[ % Add axies.
+		regular_graph, % Style defined in 'special.sty'.
+		width=0.7\textwidth, % Graph width.
+		height=.7\textwidth, % Graph height.
+		samples = 500, % Number of domain points for functions.
+		ticks=none, % Hide ticks.
+		xmin=0 % Minimum x value.
+	]
+	
+	% --- Function ---
+	\addplot[
+		domain=0.175:3, % Domain on which to plot
+		thick, % Line width
+		red!70!black, % Color
+		- % Line style
+	]
+	{(x-1.5)^3-x+2.5}; % Function to plot
+	
+	% --- Dotted line ---
+	\addplot[
+		domain=0.42:1.42,
+		thick,
+		white!40!black,
+		dashed,
+		-
+	]
+	{1.385};
+	
+	% --- Dotted line ---
+	\addplot[
+		domain=1.577:2.577,
+		thick,
+		white!40!black,
+		dashed,
+		-
+	]
+	{0.615};
+	
+	% --- Dots ---
+	\node[circle,fill=red!70!black,inner sep=1.7pt] at (axis cs:0.92,1.385) {};
+	
+	\node[circle,fill=red!70!black,inner sep=1.7pt] at (axis cs:2.077,0.615) {};
+
+	\end{axis}
+	%
+\end{tikzpicture}
+%
+\end{document}

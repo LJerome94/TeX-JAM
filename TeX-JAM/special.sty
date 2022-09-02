@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{float} % Un-comment if things break.
+\usepackage{pgfplots} % Plots.
+\usepackage{tikz} % Graphs.
+\usepackage{tikzorbital}
+\usetikzlibrary{
+	calc,
+	patterns,
+	positioning
+} % Other libraries.
+\pgfplotsset{ % Default graph styles
+	compat=1.16,
+	samples=200,
+	clip=false,
+	regular_graph/.style={
+		axis x line=middle,
+		axis y line=middle,
+		legend pos=outer north east,
+		axis line style={
+			->,
+		},
+		legend style={
+			font=\footnotesize
+		},
+		label style={
+			font=\footnotesize
+		},
+		tick label style={
+			font=\footnotesize
+		},
+		xlabel style={
+			at={
+				(ticklabel* cs:1)
+			},
+			anchor=west,
+			font=\footnotesize,
+		},
+		ylabel style={
+			at={
+				(ticklabel* cs:1)
+			},
+			anchor=south,
+			font=\footnotesize,
+		},
+		xlabel=$x$,
+		ylabel=$y$
+	},
+}
+\tikzset{
+	>=stealth
+}
+	
+\pgfplotsset{trig format plots=rad} % Set angles to rad in trig. functions.

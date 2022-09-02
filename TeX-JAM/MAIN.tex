@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper]{article}
+
+%%%%%%%%%%%%%%
+%  Packages  %
+%%%%%%%%%%%%%%
+\usepackage{page_format}
+\usepackage{special}
+\input{math_func}
+
+
+%%%%%%%%%%%%
+%  Colors  %
+%%%%%%%%%%%%
+% ! EDIT HERE !
+\colorlet{chaptercolor}{red!70!black} % Foreground color.
+\colorlet{chaptercolorback}{red!10!white} % Background color
+
+
+%%%%%%%%%%%%%%
+% Page titre %
+%%%%%%%%%%%%%%
+\title{<TITLE>} % Title of the assignement.
+\author{\JL} % Your name(s).
+\teacher{<TEACHER'S NAME>} % Your teacher's name.
+\class{<CLASS>} % The class title.
+\date{\US \\ \today} % Place and date.
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Begin the document %
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Make the title page.
+\maketitlepage
+
+% Assignment starts here ----------------------------
+\section{This is a section}
+\subsection{This is a subsection}
+\subsubsection{This is a subsubsection}
+Equations without numbering:
+\eqn{
+    \Exp{i\varphi} = \Cos{\varphi}+i\Sin{\varphi}
+}
+With\todo{It also comes with to-do notes!} number and box:
+\al{
+    \boxed{\Int[a][b]\ddp[f]{x}[2]~\D x}
+}
+
+
+\bigbox{
+Bix box around text. We also have shotcuts for delimiter:
+\eqn{
+    \p{\frac{a}{b}} \cro{\frac{a}{b}} \avg{\frac{a}{b}} \abs{\frac{a}{b}}
+}
+}
+
+Adding one figure is easy:
+\Figure{figures/figure.pdf}{.4}{This figure is compiled in \textit{fig.tex}}{fig:figure}
+
+Refer to \textit{math\_func.tex} and \textit{page\_format.sty} for more.
+
+%-------------------------------------------------------
+
+% Page left blank (for the back of the assignement if you print it)
+\blankpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Terminer le document %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

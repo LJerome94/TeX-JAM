@@ -1,0 +1,164 @@
+%----------------------------------------------------------------------
+%\usepackage{amssymb} % Mathematical fonts.
+%\usepackage{amsfonts} % Mathematical fonts.
+\usepackage[nice]{nicefrac} % Nicer fractions
+\usepackage{braket} % Dirac Notation.
+\usepackage{bbm} % More bold fonts.
+%\usepackage{mathrsfs} % Mathematical fonts.
+\usepackage{esint} % Integrals
+\usepackage{cancel} % Allows to scratch expressions.
+\usepackage{mathtools} % Tools for math formating.
+\usepackage{slashed} % Allows to slash individual characters.
+\usepackage{xargs} % Better handling of optional arguments for commands
+%----------------------------------------------------------------------
+%\usepackage{lmodern} % Fonts.
+\usepackage{feyn} % Feynman Diagrams in mathmode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathématiques et physique
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SI Units -----------------------
+% The package 'siunitx' causes unresolved crashes (as of 22/08/31)
+\newcommand{\ampere}{\text{A}}
+\newcommand{\bell}{\text{B}}
+\newcommand{\celsius}{\degree\text{C}}
+\newcommand{\coulomb}{\text{C}}
+\newcommand{\degree}{\,^{\circ}}
+\newcommand{\farad}{\text{F}}
+\newcommand{\electro}{\text{e}}
+\newcommand{\gram}{\text{g}}
+\newcommand{\henry}{\text{H}}
+\newcommand{\hertz}{\text{Hz}}
+\newcommand{\hour}{\text{h}}
+\newcommand{\joule}{\text{J}}
+\newcommand{\kelvin}{\text{K}}
+\newcommand{\meter}{\text{m}}
+\newcommand{\minute}{\text{m}}
+\newcommand{\mole}{\text{mol}}
+\newcommand{\newton}{\text{N}}
+\newcommand{\ohm}{\Omega}
+\newcommand{\pascal}{\text{Pa}}
+\newcommand{\rad}{\text{rad}}
+\newcommand{\second}{\text{s}}
+\newcommand{\tesla}{\text{T}}
+\newcommand{\torr}{\text{Torr}}
+\newcommand{\volt}{\text{V}}
+\newcommand{\watt}{\text{W}}
+%
+\newcommand{\tera}{\text{T}}
+\newcommand{\giga}{\text{G}}
+\newcommand{\mega}{~\text{M}}
+\newcommand{\kilo}{~\text{k}}
+\newcommand{\deci}{\text{d}}
+\newcommand{\centi}{\text{c}}
+\newcommand{\milli}{\text{m}}
+\newcommand{\micro}{\mu}
+\newcommand{\nano}{\text{n}}
+\newcommand{\pico}{\text{p}}
+\newcommand{\femto}{\text{f}}
+%
+\newcommand{\units}[1]{\text{#1}}
+\newcommand{\tothe}[1]{\textsuperscript{#1}}
+%
+\newcommand{\per}{\text{/}}
+%
+\newcommand{\Time}[3]{#1\hour~#2\minute~#3\second} % TODO Optional arguments.
+\newcommand{\Angle}[3]{#1^{\circ}~#2'~#3''} % TODO Optional arguments.
+
+
+% Better epsilon -----------------------
+\let\oldepsilon\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\oldepsilon
+
+
+% Better \bar -----------------------
+\renewcommand{\bar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+% Équations -----------------------
+\newcommand{\al}[1]{\begin{align} #1 \end{align}} % Numbered equation(s),
+\newcommand{\eqn}[1]{\begin{align*} #1 \end{align*}} % Number-less equation(s),
+\newcommand{\sys}[1]{\begin{dcases*} #1 \end{dcases*}} % System of equations.
+
+
+% Exponents -----------------------
+\newcommand{\Exp}[1]{\text{e}^{#1}}		% e^#
+\newcommand{\E}[1]{\times 10^{#1}}		% X 10^#
+
+
+% Delimiters -----------------------
+\newcommand{\p}[1]{\left( #1 \right)}	% (#)
+\newcommand{\cro}[1]{\left[ #1 \right]}	% [#]
+\newcommand{\abs}[1]{\left| #1\right|}	% |#|
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle} % <#>
+\newcommand{\acc}[1]{\left\lbrace #1 \right\rbrace} % {#}
+
+
+% Vectors -----------------------
+\newcommand{\ve}[1]{\mathbf{#1}} % Upright bold face.
+\newcommand{\vu}[1]{\hat{\ve{#1}}} % Hat vector upright bold face
+\newcommand{\tens}{\otimes} % Tensor product
+\newcommand{\nablav}{\bm{\nabla}} % Bold gradient
+
+
+% Trig. functions with automatic formating  -----------------------
+\newcommandx{\Sin}[2][1={}]{\text{sin}^{#1}\!\p{#2}}
+\newcommandx{\Cos}[2][1={}]{\text{cos}^{#1}\!\p{#2}}
+\newcommandx{\Tan}[2][1={}]{\text{tan}^{#1}\!\p{#2}}
+\newcommandx{\Csc}[2][1={}]{\text{csc}^{#1}\!\p{#2}}
+\newcommandx{\Sec}[2][1={}]{\text{sec}^{#1}\!\p{#2}}
+\newcommandx{\Cot}[2][1={}]{\text{cot}^{#1}\!\p{#2}}
+\newcommandx{\Arcsin}[2][1={}]{\text{arcsin}^{#1}\!\p{#2}}
+\newcommandx{\Arccos}[2][1={}]{\text{arccos}^{#1}\!\p{#2}}
+\newcommandx{\Arctan}[2][1={}]{\text{arctan}^{#1}\!\p{#2}}
+\newcommandx{\Sinh}[2][1={}]{\text{sinh}^{#1}\!\p{#2}}
+\newcommandx{\Cosh}[2][1={}]{\text{cosh}^{#1}\!\p{#2}}
+\newcommandx{\Tanh}[2][1={}]{\text{tanh}^{#1}\!\p{#2}}
+
+
+% Matrices -----------------------
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}} % Matrices with hooks.
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}} % Matrices with parentheses.
+\newcommand{\deter}[1]{\abs{\begin{matrix} #1 \end{matrix}}} % Determinant.
+\newcommandx{\mO}[2][1={}, 2={}]{ \def\temp{#2}\ifx\temp\empty\ve{O}_{#1}\else\ve{O}_{#1\times #2}\fi}% Zero matrix.
+\newcommandx{\mI}[2][1={}, 2={}]{ \def\temp{#2}\ifx\temp\empty\ve{I}_{#1}\else\ve{O}_{#1\times #2}\fi}%  Identity matrix.
+\newcommand{\Det}[1]{\text{det}\p{#1}} % det(#)
+\newcommand{\Tr}[1]{\text{Tr}\p{#1}} % Tr(#)
+
+
+% Derivatives -----------------------
+\newcommand{\D}{\text{d}} % Differential 'd'.
+\newcommandx{\dd}[3][1={},3={}]{\frac{\D^{#3}#1}{\D{#2}^{#3}}} % Total derivative according to #2, #1 is the function and #3 is the order.
+\newcommand{\del}{\partial} % Partial 'd'.
+\newcommandx{\ddp}[3][1={},3={}]{\frac{\del^{#3}#1}{\del{#2}^{#3}}} % Dérivée partielle selon #2, #1 est la fonction est #3 est l'ordre.
+\newcommand{\eval}[1]{\left. {#1} \right|} % Bar on the right of expression.
+\newcommand{\delbar}{\slashed{\del}} % Partial Inexact differential.
+\newcommand{\dbar}{\dj}% Inexact differential.
+
+
+% Integrals -----------------------
+\newcommand{\intinf}{\int\displaylimits_{-\infty}^{\infty}} % From -00 to 00.
+\newcommandx{\Int}[2][1={},2={}]{\int\displaylimits_{#1}^{#2}} % Faster bounded integrals.
+
+
+% Complex numbers -----------------------
+\renewcommand{\Re}[1]{\text{Re}\acc{#1}} % Re{#}
+\renewcommand{\Im}[1]{\text{Im}\acc{#1}} % Im{#}
+
+
+% Sets -----------------------
+\newcommand{\N}{\mathbbm{N}} % Natural numbers.
+\newcommand{\Z}{\mathbbm{Z}} % Integers.
+\newcommand{\Q}{\mathbbm{Q}} % Rational numbers.
+\newcommandx{\R}[1][1={}]{\mathbbm{R}^{#1}} % Real numbers.
+\newcommandx{\C}[1][1={}]{\mathbbm{C}^{#1}} % Complex numbers.
+\newcommandx{\F}[1][1={}]{\mathbbm{F}^{#1}} % Some field.
+\newcommand{\M}[3]{\mathbb{M}_{#1\times#2}(#3)}	% Matrices.
+\newcommand{\Po}[2]{\mathbb{P}_{#1}(#2)} % Polynomials.
+\newcommand{\Lin}{\mathbb{L}} % Linear maps.
+
+
+% Constants and physical symbols -----------------------
+\newcommand{\eo}{\epsilon_0} % epsilon 0.
+\renewcommand{\L}{\mathcal{L}} % Lagrangian.

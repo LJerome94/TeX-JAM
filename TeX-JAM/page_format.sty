@@ -1,54 +1,53 @@
-%\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-%\ProvidesPackage{TP}[2011/05/10]
-
 %-------------------------------------------------------------------------------
-\usepackage{amsmath} % Facilite l'affichage mathématique.
-\usepackage{amsthm} % Permet de gérer des théorèmes et des preuves.
+\usepackage{amsmath} % Math formating
+\usepackage{amsthm} % Proof and theorem formating.
 
+% Prevents font related errors.
 \newcommand\hmmax{0}
 \newcommand\bmmax{0}
 
-\usepackage[french]{babel} % Formatage en français
-\usepackage{graphicx} % Plus d'option pour les images.
-\usepackage{float} % Améliore l'affichage de figures et tableaux.
-\usepackage[x11names,svgnames]{xcolor} % Ajoute des couleurs et options de couleurs.
-\usepackage{url} % Formatage des liens externes.
-\usepackage{enumerate} % Plus d'options de listes.
-\usepackage{enumitem} % Personnalisation de listes.
-\usepackage{setspace} % Déterminer les espaces entre les lignes.
-\usepackage{geometry} % Gestion d'affichage plus flexible.
-\usepackage{wrapfig} % Formatage de figures.
+\usepackage[french]{babel} % French labeling. TODO English support
+\usepackage{graphicx} % More options for figures.
+\usepackage{float} % Better handling of figures and table.
+\usepackage{xcolor} % More colors.
+%\usepackage[x11names,svgnames]{xcolor} % Commented out because of clash with pgfplots.
+\usepackage{url} % Url formating.
+\usepackage{enumerate} % More options for lists.
+\usepackage{enumitem} % Lists customization.
+\usepackage{setspace} % Line spacing.
+\usepackage{geometry} % More flexible display options
+\usepackage{wrapfig} % Figure formating.
 %
 \let\saveboldmath\boldmath % Fix mathcal clashes
 \usepackage[bitstream-charter]{mathdesign} % Change the default font.
 \let\boldmath\saveboldmath % Fix mathcal clashes
-\usepackage{bm} % Permet de mettre n'importe quel caractère en gras.
+\usepackage{bm} % Any character in bold.
 %
 \let\circledS\undefined % Fixe random clash
-\usepackage[T1]{fontenc} % Choisir l'encodage de polices.
+\usepackage[T1]{fontenc} % Choose font encoding
 % Fix mathcal clashes
 \DeclareSymbolFont{cmsymbols}{OMS}{cmsy}{m}{n}
 \SetSymbolFont{cmsymbols}{bold}{OMS}{cmsy}{b}{n}
 \DeclareSymbolFontAlphabet{\mathcal}{cmsymbols}
 %
-\usepackage[utf8]{inputenc} % Permet d'utiliser des caractère directement dans LaTeX.
+\usepackage[utf8]{inputenc} % Allows more character directly in-code.
 \usepackage{layout} % 
-\usepackage{makeidx} % Permet de créer des indexes.
-\usepackage{subfiles} % Permet d'importer d'autre fichier .tex dans le principal.
-\usepackage{fancyhdr} % Formater les en-têtes et pieds de pages.
-\usepackage[color=yellow]{todonotes} % Ajouter des notes dans la marge.
+\usepackage{makeidx} % Allows to makes indexes.
+\usepackage{subfiles} % Allows to render other .tex files in 'MAIN'.
+\usepackage{fancyhdr} % Formats header and footer of page.
+\usepackage[color=chaptercolorback, size=tiny]{todonotes} % Allows to-do notes.
 %-------------------------------------------------------------------------------
 
 
-%%%%%%%%%%%%%%
-% Mise en page
-%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+% Formating %
+%%%%%%%%%%%%%
 
-% Listes -----------------------
+% Lists -----------------------
 \AtBeginDocument{\def\labelitemi{-}}
 
 
-% Liens externes -----------------------
+% Links -----------------------
 \usepackage{hyperref} 
 \hypersetup{ 
      %backref=true,
@@ -63,7 +62,7 @@
 }
 
 
-% Mise en page générale -----------------------
+% General formating -----------------------
 \usepackage{caption}
 \usepackage{subcaption}
 
@@ -85,55 +84,58 @@
 \parskip=1em
 \parindent = 0cm
 
-%numberwithin{equation}{section} % Comment numéroter les équations (selon les sections)
+%numberwithin{equation}{section} % Equation numbering.
 
 \captionsetup{justification=centering}
 
-\newcommand{\blankpage}{\newpage\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}} % Ajoute une page complètement blanche.
+\newcommand{\blankpage}{\newpage\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}} % Command to add blankpage.
 
 
 % Tableaux -----------------------
-\usepackage{array} % Manipulations de tableaux.
-\usepackage{multirow} % Fusionner les cellules d'une même colonne.
-\usepackage{multicol} % Fusionner les cellules d'une même rangée.
-\usepackage{booktabs} % Plus d'options de personnalisation des tableaux.
+\usepackage{array} % Table manipulation.
+\usepackage{multirow} % Allows to fuse rows-wise.
+\usepackage{multicol} % Allows to fuse cells column-wise.
+\usepackage{booktabs} % More table personalisation.
 
-\def\frenchtablename{Tableau} %Pour avoir tableau au lieux de "table" dans l'identification de ceux-ci
+\def\frenchtablename{Tableau} % French table name.
 
-\newcolumntype{C}{>{$\displaystyle}c<{$}} % Colonnes en mode mathématiques
+\newcolumntype{C}{>{$\displaystyle}c<{$}} % Math-mode columns types.
 \newcolumntype{L}{>{$\displaystyle}l<{$}} %
 \newcolumntype{R}{>{$\displaystyle}r<{$}} %
 \renewcommand{\arraystretch}{1.5}
-\usepackage{dcolumn} % Alignement sur le point décimal
+\usepackage{dcolumn} % Decimal point alignment.
 
 
 % Format de titres -----------------------
-\usepackage{titlesec} % Modifier les titres
+\usepackage[calcwidth]{titlesec} % Titles customization.
 
-% Couleurs par défaut
+% Default color - Edit these in 'MAIN'.
 \colorlet{chaptercolor}{black!75!black}
 \colorlet{chaptercolorback}{black!10!white}
 
-\renewcommand*{\thesection}{\fcolorbox{chaptercolor}{chaptercolorback}{\color{black}\arabic{section}}\color{black}}
-\renewcommand*{\thesubsection}{\fbox{\Alph{subsection}}}
-\renewcommand*{\thesubsubsection}{\roman{subsubsection})}
+\renewcommand*{\thesection}{\fcolorbox{chaptercolor}{chaptercolorback}{\color{black}\arabic{section}}\color{black}} % Section number format.
+\renewcommand*{\thesubsection}{\Alph{subsection}} % Subsection number format.
+\renewcommand*{\thesubsubsection}{\roman{subsubsection}} % Subsubection number format.
 
+\titleformat{\section}{\penalty-2000\vspace{0pt plus 10pt}\huge\bfseries}{\thesection\hspace{-11pt}}{1em}{}[\vspace{2pt}{\color{chaptercolor}\titlerule[2pt]}] % Section format.
 
-\titleformat{\section}{\penalty-2000\vspace{0pt plus 10pt}\huge\bfseries}{\thesection}{1em}{}[\vspace{2pt}{\color{chaptercolor}\titlerule[2pt]}]
+\titleformat{\subsection}{\penalty-2000\vspace{0pt plus 10pt}\large\bfseries}{\fbox{\thesubsection}\hspace{5pt}}{1em}{}[] % Subsection format.
+
+\titleformat{\subsubsection}{\penalty-2000\vspace{0pt plus 10pt}\bfseries}{\thesubsubsection.}{1em}{}[] % Subsubsection format.
 
 
 % Figures -----------------------
-\newcommand{\Figure}[4]{ % Permet d'ajouter une figure en une seule fonction à 4 arguments
+\newcommand{\Figure}[4]{ % Allow to quickly add figures.
 \begin{figure}[H]
     \centering
     \includegraphics[width=#2\linewidth]{#1}
     \caption{#3}
     \label{#4}
 \end{figure}
-} % #1 Nom du fichier d'image, #2 Taille, #3 Légende, #4 Étiquette
+} % #1 path-to-file, #2 size, #3 caption, #4 label
 
 
-% Mettre des éléments en couleurs -----------------------
+% Color text -----------------------
 \newcommand{\red}[1]{\color{red} #1 \color{black}}
 \newcommand{\purple}[1]{\color{purple} #1 \color{black}}
 \newcommand{\blue}[1]{\color{blue} #1 \color{black}}
@@ -154,23 +156,23 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Propre à l'Université de Sherbrooke (2022)
+% Université de Sherbrooke (2022)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Notes dans la marge -----------------------
-\newcommand{\jdo}[1]{\todo[size=tiny, color=blue!20!white]{#1}} % Notes de Jérôme
-\newcommand{\tdo}[1]{\todo[size=tiny, color=green!20!white]{#1}} % Notes de Théo
+\newcommand{\jdo}[1]{\todo[size=tiny, color=blue!20!white]{#1}} % Jérôme's todos.
+\newcommand{\tdo}[1]{\todo[size=tiny, color=green!20!white]{#1}} %Théo's todos.
 
-% Instituts -----------------------
+% -----------------------
 \newcommand{\US}{Université de Sherbrooke}
 \newcommand{\DP}{Département de physique}
 
 
-% Étudiants -----------------------
+% Students names -----------------------
 \newcommand{\JL}{Jérôme Leblanc}
 \newcommand{\TD}{Théo Dionne}
 
 
-% Professeurs -----------------------
+% Professor's names -----------------------
 \newcommand{\JQ}{Jeffrey Quilliam}
 \newcommand{\YG}{Yves Grosdidier}
 \newcommand{\DM}{Denis Morris}
@@ -182,7 +184,7 @@
 \newcommand{\EP}{Edouard Pinsolle}
 
 
-% Page titre -----------------------
+% Title page -----------------------
 %\makeatletter
 \def\maketitlepage{
 	\begin{titlepage}
@@ -190,7 +192,7 @@
 	\begin{center}
 		\@author
 		\vfill
-		\textsc{\large \@title}
+		\textsc{\color{chaptercolor}\Large \@title}
 		\vfill
 		Travail présenté à\\
 		\@teacher\\
@@ -213,8 +215,10 @@
 \tcbset{highlight math style={colframe=chaptercolor,colback=white,arc=4pt,boxrule=1pt,sharp corners}
 }
 
+% Use a colored box for 'boxed'
 \renewcommand{\boxed}[1]{\tcbhighmath{#1}}
 
+% Big box around paragraph
 \newtcolorbox[auto counter,number within=section]{definitionbox}[1][]{colback=white,colframe=chaptercolor,fonttitle=\bfseries,sharp corners,#1}
 \newcommand{\bigbox}[2]{
     \begin{definitionbox}
