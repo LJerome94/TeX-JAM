@@ -11,25 +11,26 @@ A sweet LaTeX template for your homeworks and other academic assignements!
     <img src="https://img.shields.io/github/license/Ljerome94/Canevas-LaTeX?color=orange&style=for-the-badge" />
   </p>
   
-## Table of contents (TODO)
-- [About](##About)
-- [Roadmap](##Roadmap)
-- [Credits](##Credits)
+# Table of contents (TODO)
+- [About](#About)
+- [Usage](#Usage)
+- [Roadmap](#Roadmap)
+- [Credits](#Credits)
 
-## About
-TODO
+# About
 
-## Usage
-TODO
+This is a simple [LaTeX](https://www.latex-project.org) template for homework assignements, more precisly for mathematics and physics. This was originaly intended [Overleaf](https://www.overleaf.com), but it should also work in any TeX environement you might have locally given you use the right compiler (see below).
 
-## Roadmap
+# Usage (TODO)
+
+# Roadmap
 - [ ] Make a decent README
 - [ ] Refactor file structure
 - [ ] Polish the code
 - [ ] Make a doc
 - [ ] Language Support
 
-## Credits
+# Credits
 Special thanks to:
 - Alexande Simoneau from which I borrowed some LaTeX commands for math mode.
 - David Sénéchal who inspired the page formating.
