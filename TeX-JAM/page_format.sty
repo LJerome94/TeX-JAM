@@ -57,8 +57,9 @@
      colorlinks=true,
      breaklinks=true,
      urlcolor= blue,  
-     linkcolor= blue,
+     linkcolor= chaptercolor,
      bookmarksopen=true,
+     citecolor=chaptercolor
 }
 
 
@@ -185,6 +186,9 @@
 
 
 % Title page -----------------------
+\newcommand{\university}[1]{\renewcommand{\university}{#1}} % University
+\newcommand{\faculty}[1]{\renewcommand{\faculty}{#1}} % Faculty
+\newcommand{\departement}[1]{\renewcommand{\departement}{#1}} % Departement
 %\makeatletter
 \def\maketitlepage{
 	\begin{titlepage}
@@ -199,6 +203,9 @@
 		pour le cours\\
 		\textit{\@class}
 		\vfill
+		\university\\
+		\faculty\\
+		\departement\\
 		\@date
 	\end{center}
 	\end{singlespace}
