@@ -107,18 +107,19 @@
 \usepackage{dcolumn} % Decimal point alignment.
 
 
-% Format de titres -----------------------
+% Title formats -----------------------
 \usepackage[calcwidth]{titlesec} % Titles customization.
 
-% Default color - Edit these in 'MAIN'.
+% Default color - Edit these in 'MAIN.tex'.
 \colorlet{chaptercolor}{black!75!black}
 \colorlet{chaptercolorback}{black!10!white}
 
-\renewcommand*{\thesection}{\fcolorbox{chaptercolor}{chaptercolorback}{\color{black}\arabic{section}}\color{black}} % Section number format.
+%\renewcommand*{\thesection}{\fcolorbox{chaptercolor}{chaptercolorback}{\color{black}\arabic{section}}\color{black}} % Section number format.
+\renewcommand*{\thesection}{\arabic{section}} % Section number format.
 \renewcommand*{\thesubsection}{\Alph{subsection}} % Subsection number format.
 \renewcommand*{\thesubsubsection}{\roman{subsubsection}} % Subsubection number format.
 
-\titleformat{\section}{\penalty-2000\vspace{0pt plus 10pt}\huge\bfseries}{\thesection\hspace{-11pt}}{1em}{}[\vspace{2pt}{\color{chaptercolor}\titlerule[2pt]}] % Section format.
+\titleformat{\section}{\penalty-2000\vspace{0pt plus 10pt}\huge\bfseries}{\fcolorbox{chaptercolor}{chaptercolorback}{\thesection}\hspace{-11pt}}{1em}{}[\vspace{2pt}{\color{chaptercolor}\titlerule[2pt]}] % Section format.
 
 \titleformat{\subsection}{\penalty-2000\vspace{0pt plus 10pt}\large\bfseries}{\fbox{\thesubsection}\hspace{5pt}}{1em}{}[] % Subsection format.
 
@@ -215,7 +216,24 @@
 \def\class#1{\def\@class{#1}}
 %\makeatother
 
-% Boîte équations ----------------------
+% Table of contents ----------------------
+\newcommand{\maketableofcontents}{
+    {\hypersetup{ 
+     linkcolor= black,
+    }
+    \tableofcontents
+    }
+    \newpage
+}
+
+% References ----------------------
+\newcommand{\makereferences}{
+\newpage
+\nocite{*}
+\printbibliography
+}
+
+% Equation boxes  ----------------------
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
 
@@ -232,3 +250,7 @@
 #1
 \end{definitionbox}
 }
+
+\renewcommand\thefootnote{\textcolor{chaptercolor}{\arabic{footnote}}} % Footnote index color
+
+%\renewcommand\footnoterule{\kern-3pt {\color{chaptercolor}\hrule width 2in} \kern 2.6pt} % Footnote line.

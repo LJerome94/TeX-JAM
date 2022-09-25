@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./logo.png" width=50% height=50% />
+<img src="./images/logo.png" width=50% height=50% />
 </p>
 <p align="center">
 A sweet LaTeX template for your homeworks and other academic assignments!
@@ -18,6 +18,8 @@ A sweet LaTeX template for your homeworks and other academic assignments!
 - [Usage](#usage)
   - [Setting things up](#setting-things-up)
   - [How to use](#how-to-use)
+    - [Files](#files)
+    - [Specifics](#specifics)
 - [Roadmap](#roadmap)
 - [Credits](#credits)
 
@@ -26,6 +28,19 @@ A sweet LaTeX template for your homeworks and other academic assignments!
 This is a simple [LaTeX](https://www.latex-project.org) template for homework assignments, more precisly for mathematics and physics. This was originaly intended [Overleaf](https://www.overleaf.com), but it should also work in any TeX environement you might have locally given you use the right compiler (see below).
 
 # Screenshots
+
+<table>
+  <tr>
+    <td>Title page</td>
+    <td>General layout</td>
+  </tr>
+  <tr>
+    <td><img src="./images/TeX_JAM_title.png" width=100% height=100%></td>
+    <td><img src="./images/TeX_JAM_section.png" width=97% height=97%></td>
+  </tr>
+ </table>
+
+You can also preview the whole file in `TeX-JAM.pdf`.
 
 # Usage
 
@@ -45,14 +60,34 @@ I suggest importing it and duplicating it each time you start a new assignment i
 <img src="./images/guide_overleaf.png" width=40% height=40% />
 </p>
 
-**Note:** Overleaf allows direct Github support, but since not every student has access ti the paid version of the platform, I made it so anyone could easily upload the project files.
+**Note:** Overleaf allows direct Github support, but since not every student has access to the paid version of the platform, I made it so anyone could easily upload the project files.
 
 ## How to use
 
+### Files
+
+This section goes breifly over each files in the `TeX-JAM` directory. For more information, refer to the files themselves which are decently commented.
+
+- `MAIN.tex`: This is where you'll edit your document.
+- `math_func.tex`: Contains the math commands and packages.
+- `page_format.sty`: Contains the page formating.
+- `special.sty`: This is where special packages are imported and special settings are defined (in this case, for graphs).
+- `ref.bib`: Contains the references listed in the [BibTeX](http://www.bibtex.org/) format.
+- `figures/fig.tex`: Files such as these are used to compiled figures into pdf files stored in the same directory.
+
+### Specifics
+
+There might be some feature that you do not want to keep:
+
+- Last page left blank: Comment `\blankpage` at the end of `MAIN.tex` to remove.
+- Table of contents: Comment `\maketableofcontents` at the start of `MAIN.tex` to remove.
+- References: Comment `\makereferences` at the end of `MAIN.tex` to remove.
+- Title page: Comment `\maketitlepage` at the start of `MAIN.tex` to remove.
+
 
 # Roadmap
-- [ ] Make a decent README
-- [ ] Refactor file structure
+- [x] Make a decent README
+- [x] Refactor file structure
 - [ ] Polish the code
 - [ ] Make a doc
 - [ ] Language Support
@@ -61,4 +96,5 @@ I suggest importing it and duplicating it each time you start a new assignment i
 Special thanks to:
 - Alexande Simoneau from which I borrowed some LaTeX commands for math mode.
 - David Sénéchal who inspired the page formating.
-- Théo Dionne who suggested various LaTeX commands.
+- [BCarnaval](https://github.com/BCarnaval) for ideas and inspiration.
+- [TheoNDionne](https://github.com/TheoNDionne) who suggested various LaTeX commands.
