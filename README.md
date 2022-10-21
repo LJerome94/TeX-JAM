@@ -7,7 +7,7 @@ A sweet LaTeX template for your homeworks and other academic assignments!
 <p align="center">
     <img src="https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white" />
     <img src="https://img.shields.io/badge/Overleaf-47A141?style=for-the-badge&logo=Overleaf&logoColor=white" /> 
-    <img src="https://img.shields.io/github/v/release/LJerome94/Canevas-LaTeX?color=red&style=for-the-badge" />
+    <img src="https://img.shields.io/github/v/release/LJerome94/TeX-JAM?color=red&style=for-the-badge" />
     <img src="https://img.shields.io/github/license/Ljerome94/Canevas-LaTeX?color=orange&style=for-the-badge" />
   </p>
   
