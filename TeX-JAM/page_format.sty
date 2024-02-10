@@ -17,24 +17,25 @@
 \usepackage{setspace} % Line spacing.
 \usepackage{geometry} % More flexible display options
 \usepackage{wrapfig} % Figure formating.
-%
-\let\saveboldmath\boldmath % Fix mathcal clashes
-\usepackage[bitstream-charter]{mathdesign} % Change the default font.
-\let\boldmath\saveboldmath % Fix mathcal clashes
-\usepackage{bm} % Any character in bold.
-%
-\let\circledS\undefined % Fixe random clash
-\usepackage[T1]{fontenc} % Choose font encoding
-% Fix mathcal clashes
-\DeclareSymbolFont{cmsymbols}{OMS}{cmsy}{m}{n}
-\SetSymbolFont{cmsymbols}{bold}{OMS}{cmsy}{b}{n}
-\DeclareSymbolFontAlphabet{\mathcal}{cmsymbols}
-%
+% %
+% \let\saveboldmath\boldmath % Fix mathcal clashes
+% \usepackage[bitstream-charter]{mathdesign} % Change the default font.
+% \let\boldmath\saveboldmath % Fix mathcal clashes
+% \usepackage{bm} % Any character in bold.
+% %
+% \let\circledS\undefined % Fix random clash
+% \usepackage[T1]{fontenc} % Choose font encoding
+% % Fix mathcal clashes
+% \DeclareSymbolFont{cmsymbols}{OMS}{cmsy}{m}{n}
+% \SetSymbolFont{cmsymbols}{bold}{OMS}{cmsy}{b}{n}
+% \DeclareSymbolFontAlphabet{\mathcal}{cmsymbols}
+% %
 \usepackage[utf8]{inputenc} % Allows more character directly in-code.
 \usepackage{layout} % 
 \usepackage{makeidx} % Allows to makes indexes.
 \usepackage{subfiles} % Allows to render other .tex files in 'MAIN'.
 \usepackage{fancyhdr} % Formats header and footer of page.
+\setlength {\marginparwidth }{2cm} % Prevents warning from the package todonotes.
 \usepackage[color=chaptercolorback, size=tiny]{todonotes} % Allows to-do notes.
 %-------------------------------------------------------------------------------
 
@@ -50,10 +51,6 @@
 % Links -----------------------
 \usepackage{hyperref} 
 \hypersetup{ 
-     %backref=true,
-     %pagebackref=true,
-     %hyperindex=true,
-     %bookmarks=true,
      colorlinks=true,
      breaklinks=true,
      urlcolor= blue,  
@@ -64,7 +61,7 @@
 
 
 % General formating -----------------------
-\usepackage{caption}
+\usepackage[font=small]{caption}
 \usepackage{subcaption}
 
 \tolerance=500
@@ -78,18 +75,16 @@
 
 \oddsidemargin = 0.0 in
 \evensidemargin = 0.0 in
-\topmargin = .0 in
-\headheight = 0.0 in
-\headsep = 0.0 in
-%\parskip = 0.1in
-\parskip=1em
+\topmargin = -0.5 in
+%\headheight = 16pt
+%\headsep = 0.2in % used to be zero
+\headsep = 0.3in
 \parindent = 0cm
-
-%numberwithin{equation}{section} % Equation numbering.
 
 \captionsetup{justification=centering}
 
-\newcommand{\blankpage}{\newpage\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}} % Command to add blankpage.
+\newcommand{\blankpage}{\newpage\thispagestyle{plain}\pagenumbering{gobble}~\clearpage\pagenumbering{arabic}
+} % Command to add blankpage.
 
 
 % Tableaux -----------------------
@@ -111,19 +106,25 @@
 \usepackage[calcwidth]{titlesec} % Titles customization.
 
 % Default color - Edit these in 'MAIN.tex'.
-\colorlet{chaptercolor}{black!75!black}
+\colorlet{chaptercolor}{black}
 \colorlet{chaptercolorback}{black!10!white}
 
-%\renewcommand*{\thesection}{\fcolorbox{chaptercolor}{chaptercolorback}{\color{black}\arabic{section}}\color{black}} % Section number format.
 \renewcommand*{\thesection}{\arabic{section}} % Section number format.
 \renewcommand*{\thesubsection}{\Alph{subsection}} % Subsection number format.
-\renewcommand*{\thesubsubsection}{\roman{subsubsection}} % Subsubection number format.
+\renewcommand*{\thesubsubsection}{\Alph{subsection}.\roman{subsubsection}} % Subsubection number format.
 
-\titleformat{\section}{\penalty-2000\vspace{0pt plus 10pt}\huge\bfseries}{\fcolorbox{chaptercolor}{chaptercolorback}{\thesection}\hspace{-11pt}}{1em}{}[\vspace{2pt}{\color{chaptercolor}\titlerule[2pt]}] % Section format.
+% Section format. https://latex.org/forum/viewtopic.php?t=275211
+\titleformat{\section}
+    {\penalty-2000{\color{chaptercolor}\titlerule[2pt]}\Large\bfseries\vspace{4pt}} % Format
+    {\fcolorbox{chaptercolor}{chaptercolorback}{\thesection}\hspace{-5pt}} % Label
+    {1em} % Sep
+    {} % Before code
+    [] % After code
 
-\titleformat{\subsection}{\penalty-2000\vspace{0pt plus 10pt}\large\bfseries}{\fbox{\thesubsection}\hspace{5pt}}{1em}{}[] % Subsection format.
 
-\titleformat{\subsubsection}{\penalty-2000\vspace{0pt plus 10pt}\bfseries}{\thesubsubsection.}{1em}{}[] % Subsubsection format.
+\titleformat{\subsection}{\penalty-2000\large\bfseries}{{\thesubsection}\hspace{-5pt}}{1em}{}[] % Subsection format.
+
+\titleformat{\subsubsection}{\penalty-2000\vspace{0pt plus 10pt}\bfseries}{\thesubsubsection}{1em}{}[] % Subsubsection format.
 
 
 % Figures -----------------------
@@ -138,59 +139,24 @@
 
 
 % Color text -----------------------
-\newcommand{\red}[1]{\color{red} #1 \color{black}}
-\newcommand{\purple}[1]{\color{purple} #1 \color{black}}
-\newcommand{\blue}[1]{\color{blue} #1 \color{black}}
-\newcommand{\orange}[1]{\color{orange} #1 \color{black}}
-\newcommand{\green}[1]{\color{Green} #1 \color{black}}
-\newcommand{\yellow}[1]{\color{yellow} #1 \color{black}}
-\newcommand{\teal}[1]{\color{teal} #1 \color{black}}
-\newcommand{\cyan}[1]{\color{cyan} #1 \color{black}}
-\newcommand{\lime}[1]{\color{lime} #1 \color{black}}
-\newcommand{\pink}[1]{\color{pink} #1 \color{black}}
-\newcommand{\lightgray}[1]{\color{lightgray} #1 \color{black}}
-\newcommand{\gray}[1]{\color{gray} #1 \color{black}}
-\newcommand{\darkgray}[1]{\color{darkgray} #1 \color{black}}
-\newcommand{\olive}[1]{\color{olive} #1 \color{black}}
-\newcommand{\brown}[1]{\color{brown} #1 \color{black}}
-\newcommand{\magenta}[1]{\color{magenta} #1 \color{black}}
-\newcommand{\violet}[1]{\color{violet} #1 \color{black}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Université de Sherbrooke (2022)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Notes dans la marge -----------------------
-\newcommand{\jdo}[1]{\todo[size=tiny, color=blue!20!white]{#1}} % Jérôme's todos.
-\newcommand{\tdo}[1]{\todo[size=tiny, color=green!20!white]{#1}} %Théo's todos.
-
-% -----------------------
-\newcommand{\US}{Université de Sherbrooke}
-\newcommand{\DP}{Département de physique}
-
-
-% Students names -----------------------
-\newcommand{\JL}{Jérôme Leblanc}
-\newcommand{\TD}{Théo Dionne}
-
-
-% Professor's names -----------------------
-\newcommand{\JQ}{Jeffrey Quilliam}
-\newcommand{\YG}{Yves Grosdidier}
-\newcommand{\DM}{Denis Morris}
-\newcommand{\IG}{Ion Garate}
-\newcommand{\RC}{René Côté}
-\newcommand{\MP}{Michel Piorio-Ladrière}
-\newcommand{\CB}{Claude Bourbonnais}
-\newcommand{\AT}{André-Marie Tremblay}
-\newcommand{\EP}{Edouard Pinsolle}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\purple}[1]{{\color{purple} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\newcommand{\orange}[1]{{\color{orange} #1}}
+\newcommand{\green}[1]{{\color{Green} #1}}
+\newcommand{\yellow}[1]{{\color{yellow} #1}}
+\newcommand{\pink}[1]{{\color{pink} #1}}
+\newcommand{\gray}[1]{{\color{gray} #1}}
+\newcommand{\brown}[1]{{\color{brown} #1}}
 
 
 % Title page -----------------------
 \newcommand{\university}[1]{\renewcommand{\university}{#1}} % University
 \newcommand{\faculty}[1]{\renewcommand{\faculty}{#1}} % Faculty
 \newcommand{\departement}[1]{\renewcommand{\departement}{#1}} % Departement
+
 %\makeatletter
+\def\mytitle{\@title}
 \def\maketitlepage{
 	\begin{titlepage}
 	\begin{singlespace}
@@ -199,7 +165,7 @@
 		\vfill
 		\textsc{\color{chaptercolor}\Large \@title}
 		\vfill
-		Travail présenté à\\
+		Presenté à\\
 		\@teacher\\
 		pour le cours\\
 		\textit{\@class}
@@ -218,6 +184,7 @@
 
 % Table of contents ----------------------
 \newcommand{\maketableofcontents}{
+    \thispagestyle{plain} % TODO Changer ceci
     {\hypersetup{ 
      linkcolor= black,
     }
@@ -229,6 +196,7 @@
 % References ----------------------
 \newcommand{\makereferences}{
 \newpage
+\thispagestyle{plain}
 \nocite{*}
 \printbibliography
 }
@@ -254,3 +222,24 @@
 \renewcommand\thefootnote{\textcolor{chaptercolor}{\arabic{footnote}}} % Footnote index color
 
 %\renewcommand\footnoterule{\kern-3pt {\color{chaptercolor}\hrule width 2in} \kern 2.6pt} % Footnote line.
+
+% Fonts
+\usepackage{charter}
+\usepackage[charter,cal=cmcal]{mathdesign}
+
+% Headers
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[ER]{\color{chaptercolor}\textit\leftmark}
+% \fancyhead[OL]{\color{chaptercolor}\textit\mytitle}
+% \fancyfoot[C]{\thepage} % Page number centered
+% \renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{normal}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhead[LO]{\color{chaptercolor}\small\textit\mytitle} %
+  \fancyhead[RE]{\color{chaptercolor}\small\textit\leftmark} %
+  \fancyfoot[C]{\thepage} % Page number centered
+}
+\pagestyle{normal}
+\renewcommand{\sectionmark}[1]{\markboth{\text{\thesection.}~ #1}{}}

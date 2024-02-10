@@ -12,7 +12,6 @@
 \usepackage{xargs} % Better handling of optional arguments for commands
 %----------------------------------------------------------------------
 %\usepackage{lmodern} % Fonts.
-\usepackage{feyn} % Feynman Diagrams in mathmode
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathématiques et physique
@@ -20,6 +19,8 @@
 % SI Units -----------------------
 % The package 'siunitx' causes unresolved crashes (as of 22/08/31)
 \newcommand{\ampere}{\text{A}}
+\renewcommand{\AA}{\mathring{\mathrm{A}}}
+\newcommand{\angstrom}{\AA}
 \newcommand{\bell}{\text{B}}
 \newcommand{\celsius}{\degree\text{C}}
 \newcommand{\coulomb}{\text{C}}
@@ -61,9 +62,6 @@
 \newcommand{\tothe}[1]{\textsuperscript{#1}}
 %
 \newcommand{\per}{\text{/}}
-%
-\newcommand{\Time}[3]{#1\hour~#2\minute~#3\second} % TODO Optional arguments.
-\newcommand{\Angle}[3]{#1^{\circ}~#2'~#3''} % TODO Optional arguments.
 
 
 % Better epsilon -----------------------
@@ -121,8 +119,6 @@
 \newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}} % Matrices with hooks.
 \newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}} % Matrices with parentheses.
 \newcommand{\deter}[1]{\abs{\begin{matrix} #1 \end{matrix}}} % Determinant.
-\newcommandx{\mO}[2][1={}, 2={}]{ \def\temp{#2}\ifx\temp\empty\ve{O}_{#1}\else\ve{O}_{#1\times #2}\fi}% Zero matrix.
-\newcommandx{\mI}[2][1={}, 2={}]{ \def\temp{#2}\ifx\temp\empty\ve{I}_{#1}\else\ve{O}_{#1\times #2}\fi}%  Identity matrix.
 \newcommand{\Det}[1]{\text{det}\p{#1}} % det(#)
 \newcommand{\Tr}[1]{\text{Tr}\p{#1}} % Tr(#)
 
@@ -151,14 +147,13 @@
 \newcommand{\N}{\mathbbm{N}} % Natural numbers.
 \newcommand{\Z}{\mathbbm{Z}} % Integers.
 \newcommand{\Q}{\mathbbm{Q}} % Rational numbers.
-\newcommandx{\R}[1][1={}]{\mathbbm{R}^{#1}} % Real numbers.
-\newcommandx{\C}[1][1={}]{\mathbbm{C}^{#1}} % Complex numbers.
-\newcommandx{\F}[1][1={}]{\mathbbm{F}^{#1}} % Some field.
-\newcommand{\M}[3]{\mathbb{M}_{#1\times#2}(#3)}	% Matrices.
-\newcommand{\Po}[2]{\mathbb{P}_{#1}(#2)} % Polynomials.
-\newcommand{\Lin}{\mathbb{L}} % Linear maps.
+\newcommand{\R}{\mathbbm{R}} % Real numbers.
+\newcommand{\C}{\mathbbm{C}} % Complex numbers.
 
 
 % Constants and physical symbols -----------------------
-\newcommand{\eo}{\epsilon_0} % epsilon 0.
-\renewcommand{\L}{\mathcal{L}} % Lagrangian.
+\newcommand{\kb}{k_\mathrm{B}} % Boltzmann's constant.
+\renewcommand{\c}{\mathrm{c}} % Fermionic annihilation operator.
+\let\oldAA\AA
+\renewcommand{\r}{\mathbf{r}} % Position vector.
+\renewcommand{\k}{\mathbf{k}} % Wave vector.

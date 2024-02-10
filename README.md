@@ -6,11 +6,11 @@ A sweet LaTeX template for your homeworks and other academic assignments!
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white" />
-    <img src="https://img.shields.io/badge/Overleaf-47A141?style=for-the-badge&logo=Overleaf&logoColor=white" /> 
+    <img src="https://img.shields.io/badge/Overleaf-47A141?style=for-the-badge&logo=Overleaf&logoColor=white" />
     <img src="https://img.shields.io/github/v/release/LJerome94/TeX-JAM?color=red&style=for-the-badge" />
     <img src="https://img.shields.io/github/license/Ljerome94/Canevas-LaTeX?color=orange&style=for-the-badge" />
   </p>
-  
+
 # Table of contents
 - [Table of contents](#table-of-contents)
 - [About](#about)
@@ -25,7 +25,7 @@ A sweet LaTeX template for your homeworks and other academic assignments!
 
 # About
 
-This is a simple [LaTeX](https://www.latex-project.org) template for homework assignments, more precisly for mathematics and physics. This was originaly intended [Overleaf](https://www.overleaf.com), but it should also work in any TeX environement you might have locally given you use the right compiler (see below).
+This is a simple [LaTeX](https://www.latex-project.org) template for homework assignments, more precisely for mathematics and physics. This was originaly intended for [Overleaf](https://www.overleaf.com), but it should also work in any TeX environement you might have locally given that you use the right compiler (see below).
 
 # Screenshots
 
@@ -46,7 +46,7 @@ You can also preview the whole file in `TeX-JAM.pdf`.
 
 ## Setting things up
 
-Like mention before, this template was designed for [Overleaf](https://www.overleaf.com). Therefore, we'll only cover how to use this repository on their platform (for now). If you prefer to do things on your local machine, you can use the code in the `TeX-JAM` folder.
+Like mentioned before, this template was designed for [Overleaf](https://www.overleaf.com). Therefore, we'll only cover how to use this repository on their platform (for now). If you prefer to do things on your local machine, you can use the files in the `TeX-JAM` folder.
 
 1. First you'll need to clone this repository anywhere you want.
 2. Then you'll want to head to https://www.overleaf.com and log into your account (or register if you don't have one).
@@ -71,26 +71,22 @@ This section goes breifly over each files in the `TeX-JAM` directory. For more i
 - `MAIN.tex`: This is where you'll edit your document.
 - `math_func.tex`: Contains the math commands and packages.
 - `page_format.sty`: Contains the page formating.
-- `special.sty`: This is where special packages are imported and special settings are defined (in this case, for graphs).
+- `special.sty`: This is where the packages for TiKz figures are imported.
 - `ref.bib`: Contains the references listed in the [BibTeX](http://www.bibtex.org/) format.
-- `figures/fig.tex`: Files such as these are used to compiled figures into pdf files stored in the same directory.
+- `figures/fig.tex`: Files such as these are used to compile figures into PDF files stored in the same directory.
 
 ### Specifics
 
 There might be some feature that you do not want to keep:
 
-- Last page left blank: Comment `\blankpage` at the end of `MAIN.tex` to remove.
+- Blank page: Use `\blankpage` for a totally blank page.
 - Table of contents: Comment `\maketableofcontents` at the start of `MAIN.tex` to remove.
 - References: Comment `\makereferences` at the end of `MAIN.tex` to remove.
 - Title page: Comment `\maketitlepage` at the start of `MAIN.tex` to remove.
 
 
 # Roadmap
-- [x] Make a decent README
-- [x] Refactor file structure
-- [ ] Polish the code
-- [ ] Make a doc
-- [ ] Language Support
+- [ ] Add a beamer template.
 
 # Credits
 Special thanks to:
